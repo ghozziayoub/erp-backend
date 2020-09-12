@@ -13,16 +13,19 @@ const taskSchema = {
         unique: true
     },
 
-    //el wa9t
     label: {
         type: String,
         require: true
     },
-
+    //planned-tasks work-in-progress finished-tasks
     state: {
-        type: Boolean,
-        default: false
+        type: String,
+        default: "planned-tasks"
     },
+    member_id:{
+        type:String,
+        require:true
+    }
 
 }
 
