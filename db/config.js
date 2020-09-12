@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/erp-db"
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb+srv://<ghozziayoub@gmail.com>:<azerty1234>@@cluster0.hsewk.gcp.mongodb.net/<erp-db>?retryWrites=true&w=majority"
 
 const MONGODB_OPTIONS = {
     useNewUrlParser: true,
