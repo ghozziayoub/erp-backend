@@ -15,7 +15,7 @@ app.use(cors())
 app.use("/member", userController)
 app.use("/task", taskController)
 
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 app.get('/', (req, res) => {
     res.status(200).send("Welcome to the server")
