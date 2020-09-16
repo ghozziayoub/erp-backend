@@ -135,18 +135,18 @@ app.post("/login", (req, res) => {
             res.status(400).send({ message: "Account Disabled" });
           } else {
             let obj = {
-              role: data.role,
-              accountState: data.accountState,
-              _id: data._id,
-              firstname: data.firstname,
-              lastname: data.lastname,
-              email: data.email,
-              phone: data.phone,
-              gender: data.gender,
-              birthday: data.birthday,
-              level: data.level,
-              since: data.since,
-              department: data.department,
+              role: user.role,
+              accountState: user.accountState,
+              _id: user._id,
+              firstname: user.firstname,
+              lastname: user.lastname,
+              email: user.email,
+              phone: user.phone,
+              gender: user.gender,
+              birthday: user.birthday,
+              level: user.level,
+              since: user.since,
+              department: user.department,
             }
             let token = jwt.sign(obj, "SEKRITOU");
 
