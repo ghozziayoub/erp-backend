@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const { User, userSchema } = require("./user");
 
 const taskSchema = {
 
@@ -23,11 +22,12 @@ const taskSchema = {
         default: "planned-tasks"
     },
     member_id: {
-        type: String,
+        type: mongoose.Schema.ObjectId,
+        ref: 'user',
         require: true
     },
     member: {
-        type: userSchema,
+        type: mongoose.Schema.Types.Mixed,
         require: true
     }
 

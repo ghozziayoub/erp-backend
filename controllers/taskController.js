@@ -13,7 +13,6 @@ app.post("/add", async (req, res) => {
   try {
     let data = req.body;
     let user = await User.findOne({ _id: data.member_id })
-    delete user.password
 
     let task = new Task({
       title: data.title,
