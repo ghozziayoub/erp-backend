@@ -9,8 +9,7 @@ const taskSchema = {
 
     description: {
         type: String,
-        require: true,
-        unique: true
+        require: true
     },
 
     label: {
