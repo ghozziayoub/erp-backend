@@ -131,9 +131,11 @@ app.post("/login", (req, res) => {
           if (!user.accountState) {
             res.status(400).send({ message: "Account Disabled" });
           } else {
-            let token = jwt.sign({ id: user._id, role: user.role }, "SEKRITOU");
 
-            res.status(200).send({token});
+            delete user.password;
+            let token = jwt.sign(user, "SEKRITOU");
+
+            res.status(200).send({ token });
           }
         }
       }
