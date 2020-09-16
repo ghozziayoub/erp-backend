@@ -120,20 +120,35 @@ app.post("/login", (req, res) => {
 
   User.findOne({ email: data.email })
     .then((user) => {
+
       if (!user) {
         res.status(404).send({ message: "Email / Password incorrect(s)" });
       } else {
+
         let compare = bcrypt.compareSync(data.password, user.password);
 
         if (!compare) {
           res.status(404).send({ message: "Email / Password incorrect(s)" });
         } else {
+
           if (!user.accountState) {
             res.status(400).send({ message: "Account Disabled" });
           } else {
-
-            delete user.password;
-            let token = jwt.sign(user, "SEKRITOU");
+            let obj = {
+              role: data.role,
+              accountState: data.accountState,
+              _id: data._id,
+              firstname: data.firstname,
+              lastname: data.lastname,
+              email: data.email,
+              phone: data.phone,
+              gender: data.gender,
+              birthday: data.birthday,
+              level: data.level,
+              since: data.since,
+              department: data.department,
+            }
+            let token = jwt.sign(obj, "SEKRITOU");
 
             res.status(200).send({ token });
           }
