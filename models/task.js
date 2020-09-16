@@ -21,9 +21,9 @@ const taskSchema = {
         type: String,
         default: "planned-tasks"
     },
-    member_id:{
-        type:String,
-        require:true
+    member_id: {
+        type: Schema.ObjectId,
+        ref: 'user'
     }
 
 }
